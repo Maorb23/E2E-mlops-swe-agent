@@ -1,0 +1,16 @@
+[project]
+name = "mlops-assignment-e2e-ml-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mlflow>=3.7.0",
+    "mini-swe-agent>=2.4.1",
+    "swebench>=4.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.17",
+]
