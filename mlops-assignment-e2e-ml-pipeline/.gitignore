@@ -3,12 +3,6 @@ __pycache__
 .venv
 .env
 
-/trajectories/
-/trajectory.json
-
-/logs/
-/mlruns/
-/runs/
 .uv-cache/
 
 mini-swe-agent/

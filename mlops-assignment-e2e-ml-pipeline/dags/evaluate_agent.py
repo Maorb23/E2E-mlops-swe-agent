@@ -312,8 +312,6 @@ def evaluate_agent():
             str(config["swebench_config"]),
             "--workers",
             str(config["workers"]),
-            "--cost-limit",
-            str(config["cost_limit"]),
             "-o",
             str(trajectories_dir),
         ]
