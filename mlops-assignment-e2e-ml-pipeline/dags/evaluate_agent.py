@@ -14,7 +14,7 @@ from airflow.operators.python import get_current_context
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RUNS_ROOT = PROJECT_ROOT / "runs"
-SWE_BENCH_CONFIG = (
+LOCAL_SWE_BENCH_CONFIG = (
     PROJECT_ROOT
     / "mini-swe-agent"
     / "src"
@@ -23,6 +23,7 @@ SWE_BENCH_CONFIG = (
     / "benchmarks"
     / "swebench.yaml"
 )
+PACKAGE_SWE_BENCH_CONFIG = "benchmarks/swebench.yaml"
 DEFAULT_MODEL = "nebius/moonshotai/Kimi-K2.6"
 EXPERIMENT_NAME = "coding-agent-evals"
 
@@ -62,6 +63,12 @@ def dataset_name_for_subset(subset: str) -> str:
     if subset.lower() == "verified":
         return "princeton-nlp/SWE-bench_Verified"
     return "princeton-nlp/SWE-bench"
+
+
+def swebench_config_spec() -> str:
+    if LOCAL_SWE_BENCH_CONFIG.exists():
+        return str(LOCAL_SWE_BENCH_CONFIG)
+    return PACKAGE_SWE_BENCH_CONFIG
 
 
 def build_manifest(config: dict[str, Any], notes: list[str] | None = None) -> dict[str, Any]:
@@ -279,7 +286,7 @@ def evaluate_agent():
             "task_slice": params.get("task_slice", "0:1"),
             "cost_limit": coerce_float(params.get("cost_limit", 0), "cost_limit"),
             "dataset_name": dataset_name_for_subset(str(params.get("subset", "verified"))),
-            "swebench_config": str(SWE_BENCH_CONFIG),
+            "swebench_config": swebench_config_spec(),
             "run_dir": str(run_dir),
         }
 
