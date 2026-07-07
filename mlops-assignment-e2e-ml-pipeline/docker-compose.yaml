@@ -1,0 +1,51 @@
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: mlops-assignment-airflow:latest
+    command: standalone
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW_HOME: /opt/airflow
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/project/dags
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__API_AUTH__JWT_SECRET: local-dev-secret
+      AGENT_EVAL_IMAGE: mlops-assignment-agent:latest
+      DOCKER_NETWORK: mlops-eval-net
+      HOST_PROJECT_ROOT: ${PWD}
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      MLFLOW_ALLOW_FILE_STORE: "true"
+      NEBIUS_API_KEY: ${NEBIUS_API_KEY:-}
+    volumes:
+      - .:/opt/airflow/project
+      - /var/run/docker.sock:/var/run/docker.sock
+      - airflow-home:/opt/airflow
+    depends_on:
+      - mlflow
+    networks:
+      - mlops-eval-net
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.14.0
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+      --host 0.0.0.0
+      --port 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow
+    networks:
+      - mlops-eval-net
+
+networks:
+  mlops-eval-net:
+    name: mlops-eval-net
+
+volumes:
+  airflow-home:
+  mlflow-data:

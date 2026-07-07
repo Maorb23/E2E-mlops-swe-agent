@@ -112,8 +112,48 @@ Use a stable run id:
 }
 ```
 
+## Phase 3 Docker option
+
+The speedrun DAG `evaluate_agent` still exists and uses direct Python subprocess calls. A production-style option is available as `evaluate_agent_docker`.
+
+Build the agent image from the provided project `Dockerfile`:
+
+```bash
+docker build -t mlops-assignment-agent:latest .
+```
+
+Start Airflow and MLflow through Docker Compose:
+
+```bash
+export NEBIUS_API_KEY=<your-key>
+docker compose up --build
+```
+
+Open:
+
+- Airflow: `http://localhost:8080`
+- MLflow: `http://localhost:5000`
+
+Trigger DAG `evaluate_agent_docker` with the same params as `evaluate_agent`. The Docker DAG runs each pipeline stage in a container:
+
+```text
+prepare_run -> run_agent -> run_eval -> summarize_and_log
+```
+
+It mounts the repository into the agent container at `/workspace`, writes artifacts into the same local `runs/<run-id>/` layout, and logs metrics to the MLflow service at `http://mlflow:5000`.
+
+The Docker DAG adds basic retries and task timeouts:
+
+- `prepare_run`: 1 hour timeout
+- `run_agent`: 6 hour timeout
+- `run_eval`: 8 hour timeout
+- `summarize_and_log`: 1 hour timeout
+- all tasks retry once after 3 minutes
+
+If running Airflow standalone instead of Compose, build the agent image and make sure Docker is available to the Airflow process. The standalone helper installs the Docker provider into the Airflow tool environment.
+
 ## First-iteration limits
 
 S3/Object Storage is not implemented in this version. The local run folder, `manifest.json`, and MLflow artifact references make each run reproducible and easy to hand off, but a production version should upload the run directory to durable storage and log that remote URI.
 
-Production-style improvements would also include isolated `DockerOperator` tasks, task timeouts and retries, an Airflow/MLflow `docker compose` deployment, and stricter parsing for additional SWE-bench summary formats.
+Remaining production improvements include remote artifact storage, stricter parsing for additional SWE-bench summary formats, secrets management, and a hardened Airflow deployment instead of the local Compose setup.
