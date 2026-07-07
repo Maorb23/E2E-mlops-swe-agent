@@ -1,0 +1,152 @@
+{
+  "astropy__astropy-12907": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-12907",
+    "model_patch": ""
+  },
+  "astropy__astropy-13033": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13033",
+    "model_patch": ""
+  },
+  "astropy__astropy-13236": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13236",
+    "model_patch": ""
+  },
+  "astropy__astropy-13398": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13398",
+    "model_patch": ""
+  },
+  "astropy__astropy-13453": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13453",
+    "model_patch": ""
+  },
+  "astropy__astropy-13579": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13579",
+    "model_patch": ""
+  },
+  "astropy__astropy-13977": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13977",
+    "model_patch": ""
+  },
+  "astropy__astropy-14096": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14096",
+    "model_patch": ""
+  },
+  "astropy__astropy-14182": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14182",
+    "model_patch": ""
+  },
+  "astropy__astropy-14309": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14309",
+    "model_patch": ""
+  },
+  "astropy__astropy-14365": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14365",
+    "model_patch": ""
+  },
+  "astropy__astropy-14369": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14369",
+    "model_patch": ""
+  },
+  "astropy__astropy-14508": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14508",
+    "model_patch": ""
+  },
+  "astropy__astropy-14539": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14539",
+    "model_patch": ""
+  },
+  "astropy__astropy-14598": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14598",
+    "model_patch": ""
+  },
+  "astropy__astropy-14995": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14995",
+    "model_patch": ""
+  },
+  "astropy__astropy-7166": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-7166",
+    "model_patch": ""
+  },
+  "astropy__astropy-7336": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-7336",
+    "model_patch": ""
+  },
+  "astropy__astropy-7606": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-7606",
+    "model_patch": ""
+  },
+  "astropy__astropy-7671": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-7671",
+    "model_patch": ""
+  },
+  "astropy__astropy-8707": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-8707",
+    "model_patch": ""
+  },
+  "astropy__astropy-8872": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-8872",
+    "model_patch": ""
+  },
+  "django__django-10097": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10097",
+    "model_patch": ""
+  },
+  "django__django-10554": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10554",
+    "model_patch": ""
+  },
+  "django__django-10880": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10880",
+    "model_patch": ""
+  },
+  "django__django-10914": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10914",
+    "model_patch": ""
+  },
+  "django__django-10973": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10973",
+    "model_patch": ""
+  },
+  "django__django-10999": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-10999",
+    "model_patch": ""
+  },
+  "django__django-11066": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-11066",
+    "model_patch": ""
+  },
+  "django__django-11087": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "django__django-11087",
+    "model_patch": ""
+  }
+}

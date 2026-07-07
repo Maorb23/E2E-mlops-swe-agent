@@ -9,16 +9,6 @@
     "instance_id": "astropy__astropy-13033",
     "model_patch": "diff --git a/astropy/timeseries/core.py b/astropy/timeseries/core.py\nindex c279f35f8..52599978a 100644\n--- a/astropy/timeseries/core.py\n+++ b/astropy/timeseries/core.py\n@@ -76,6 +76,32 @@ class BaseTimeSeries(QTable):\n \n             elif self.colnames[:len(required_columns)] != required_columns:\n \n+                if len(self.colnames) > 0 and self.colnames[0] == required_columns[0]:\n+\n+                    if len(self.colnames) < len(required_columns):\n+                        # Some required columns are missing\n+                        # Use set difference, not positional slice, since\n+                        # columns may have shifted after a column was removed\n+                        missing = [col for col in required_columns if col not in self.colnames]\n+                        if len(missing) == 1:\n+                            columns_str = 'column'\n+                            missing_str = f\"'{missing[0]}'\"\n+                        else:\n+                            columns_str = 'columns'\n+                            missing_str = ', '.join(f\"'{c}'\" for c in missing)\n+                        raise ValueError(\"{} object is invalid - missing required {} {}\"\n+                                         .format(self.__class__.__name__, columns_str, missing_str))\n+                    else:\n+                        # A required column in position > 0 is wrong\n+                        wrong_idx = next(i for i in range(1, len(required_columns))\n+                                       if self.colnames[i] != required_columns[i])\n+                        raise ValueError(\"{} object is invalid - expected '{}' \"\n+                                         \"as column {} but found '{}'\"\n+                                         .format(self.__class__.__name__,\n+                                                 required_columns[wrong_idx],\n+                                                 wrong_idx + 1,\n+                                                 self.colnames[wrong_idx]))\n+\n                 raise ValueError(\"{} object is invalid - expected '{}' \"\n                                  \"as the first column{} but found '{}'\"\n                                  .format(self.__class__.__name__, required_columns[0], plural, self.colnames[0]))\n"
   },
-  "astropy__astropy-13977": {
-    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
-    "instance_id": "astropy__astropy-13977",
-    "model_patch": ""
-  },
-  "astropy__astropy-14096": {
-    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
-    "instance_id": "astropy__astropy-14096",
-    "model_patch": ""
-  },
   "astropy__astropy-14182": {
     "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
     "instance_id": "astropy__astropy-14182",
@@ -143,5 +133,15 @@
     "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
     "instance_id": "astropy__astropy-13453",
     "model_patch": "diff --git a/astropy/io/ascii/html.py b/astropy/io/ascii/html.py\nindex 266cf229c..32f872552 100644\n--- a/astropy/io/ascii/html.py\n+++ b/astropy/io/ascii/html.py\n@@ -349,6 +349,8 @@ class HTML(core.BaseReader):\n         cols = list(table.columns.values())\n \n         self.data.header.cols = cols\n+        self.data.cols = cols\n+        self.data._set_col_formats()\n \n         if isinstance(self.data.fill_values, tuple):\n             self.data.fill_values = [self.data.fill_values]\n"
+  },
+  "astropy__astropy-13579": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13579",
+    "model_patch": "diff --git a/astropy/wcs/wcsapi/wrappers/sliced_wcs.py b/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\nindex d7605b078..48e9692ce 100644\n--- a/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\n+++ b/astropy/wcs/wcsapi/wrappers/sliced_wcs.py\n@@ -246,12 +246,13 @@ class SlicedLowLevelWCS(BaseWCSWrapper):\n         world_arrays = tuple(map(np.asanyarray, world_arrays))\n         world_arrays_new = []\n         iworld_curr = -1\n+        dropped_world_values = iter(self.dropped_world_dimensions.get(\"value\", []))\n         for iworld in range(self._wcs.world_n_dim):\n             if iworld in self._world_keep:\n                 iworld_curr += 1\n                 world_arrays_new.append(world_arrays[iworld_curr])\n             else:\n-                world_arrays_new.append(1.)\n+                world_arrays_new.append(next(dropped_world_values))\n \n         world_arrays_new = np.broadcast_arrays(*world_arrays_new)\n         pixel_arrays = list(self._wcs.world_to_pixel_values(*world_arrays_new))\n"
+  },
+  "astropy__astropy-13977": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13977",
+    "model_patch": "diff --git a/astropy/units/quantity.py b/astropy/units/quantity.py\nindex b98abfafb..d446043eb 100644\n--- a/astropy/units/quantity.py\n+++ b/astropy/units/quantity.py\n@@ -665,9 +665,12 @@ class Quantity(np.ndarray):\n \n         # Same for inputs, but here also convert if necessary.\n         arrays = []\n-        for input_, converter in zip(inputs, converters):\n-            input_ = getattr(input_, \"value\", input_)\n-            arrays.append(converter(input_) if converter else input_)\n+        try:\n+            for input_, converter in zip(inputs, converters):\n+                input_ = getattr(input_, \"value\", input_)\n+                arrays.append(converter(input_) if converter else input_)\n+        except (TypeError, ValueError):\n+            return NotImplemented\n \n         # Call our superclass's __array_ufunc__\n         result = super().__array_ufunc__(function, method, *arrays, **kwargs)\n"
   }
 }

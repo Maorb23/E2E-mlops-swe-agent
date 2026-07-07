@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "Inspected files: ['/workspace/runs/12/run-eval/logs/run_evaluation/10/nebius__moonshotai__Kimi-K2.6/astropy__astropy-12907/report.json', '/workspace/runs/12/run-eval/logs/run_evaluation/10/nebius__moonshotai__Kimi-K2.6/astropy__astropy-13033/report.json', '/workspace/runs/12/run-eval/reports/astropy__astropy-12907.report.json', '/workspace/runs/12/run-eval/reports/astropy__astropy-13033.report.json']"
+  ],
+  "resolve_rate": 0.5,
+  "resolved_instances": 1,
+  "run_id": "12",
+  "status": "completed",
+  "total_instances": 2,
+  "unresolved_instances": 1
+}

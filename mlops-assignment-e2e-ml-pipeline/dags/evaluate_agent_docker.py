@@ -13,22 +13,19 @@ DOCKER_IMAGE = os.environ.get("AGENT_EVAL_IMAGE", "mlops-assignment-agent:latest
 DOCKER_NETWORK = os.environ.get("DOCKER_NETWORK", "mlops-eval-net")
 DEFAULT_MODEL = "nebius/moonshotai/Kimi-K2.6"
 
-RUN_ID_TEMPLATE = "{{ params.run_id or dag_run.run_id }}"
+RUN_ID_TEMPLATE = "{{ dag_run.conf.get('run_id') or params.run_id or dag_run.run_id }}"
+SPLIT_TEMPLATE = "{{ dag_run.conf.get('split', params.split) }}"
+SUBSET_TEMPLATE = "{{ dag_run.conf.get('subset', params.subset) }}"
+WORKERS_TEMPLATE = "{{ dag_run.conf.get('workers', params.workers) }}"
+MODEL_TEMPLATE = "{{ dag_run.conf.get('model', params.model) }}"
+TASK_SLICE_TEMPLATE = "{{ dag_run.conf.get('task_slice', params.task_slice) }}"
+COST_LIMIT_TEMPLATE = "{{ dag_run.conf.get('cost_limit', params.cost_limit) }}"
 
 COMMON_ENV = {
     "PROJECT_ROOT": "/workspace",
-    "EVAL_RUN_ID": RUN_ID_TEMPLATE,
-    "EVAL_SPLIT": "{{ params.split }}",
-    "EVAL_SUBSET": "{{ params.subset }}",
-    "EVAL_WORKERS": "{{ params.workers }}",
-    "EVAL_MODEL": "{{ params.model }}",
-    "EVAL_TASK_SLICE": "{{ params.task_slice }}",
-    "EVAL_COST_LIMIT": "{{ params.cost_limit }}",
     "MSWEA_COST_TRACKING": "ignore_errors",
     "MLFLOW_TRACKING_URI": os.environ.get("MLFLOW_TRACKING_URI", "http://mlflow:5000"),
     "MLFLOW_ALLOW_FILE_STORE": "true",
-    "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
-    "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
     "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
 }
 
@@ -77,22 +74,29 @@ with DAG(
 ) as dag:
     prepare_run = docker_task(
         "prepare_run",
-        "python scripts/evaluate_agent_pipeline.py prepare-run",
+        "python scripts/evaluate_agent_pipeline.py prepare-run "
+        f"--run-id '{RUN_ID_TEMPLATE}' "
+        f"--split '{SPLIT_TEMPLATE}' "
+        f"--subset '{SUBSET_TEMPLATE}' "
+        f"--workers '{WORKERS_TEMPLATE}' "
+        f"--model '{MODEL_TEMPLATE}' "
+        f"--task-slice '{TASK_SLICE_TEMPLATE}' "
+        f"--cost-limit '{COST_LIMIT_TEMPLATE}'",
         timeout_hours=1,
     )
     run_agent = docker_task(
         "run_agent",
-        "python scripts/evaluate_agent_pipeline.py run-agent",
+        f"python scripts/evaluate_agent_pipeline.py run-agent --run-id '{RUN_ID_TEMPLATE}'",
         timeout_hours=6,
     )
     run_eval = docker_task(
         "run_eval",
-        "python scripts/evaluate_agent_pipeline.py run-eval",
+        f"python scripts/evaluate_agent_pipeline.py run-eval --run-id '{RUN_ID_TEMPLATE}'",
         timeout_hours=8,
     )
     summarize_and_log = docker_task(
         "summarize_and_log",
-        "python scripts/evaluate_agent_pipeline.py summarize-and-log",
+        f"python scripts/evaluate_agent_pipeline.py summarize-and-log --run-id '{RUN_ID_TEMPLATE}'",
         timeout_hours=1,
     )
 

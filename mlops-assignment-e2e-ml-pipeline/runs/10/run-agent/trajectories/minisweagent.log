@@ -3794,3 +3794,9 @@ litellm.exceptions.AuthenticationError: litellm.AuthenticationError: Authenticat
 2026-07-07 17:31:59,661 - minisweagent - INFO - Saved trajectory to '/workspace/runs/10/run-agent/trajectories/astropy__astropy-13453/astropy__astropy-13453.traj.json'
 2026-07-07 17:31:59,663 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-2222bb74 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest sleep 2h
 2026-07-07 17:31:59,843 - minisweagent.environment - INFO - Started container minisweagent-2222bb74 with ID c5df2515a036d4764978ba134e3170a08ecaee193d03f7caee5597e5238240d5
+2026-07-07 17:46:12,712 - minisweagent - INFO - Saved trajectory to '/workspace/runs/10/run-agent/trajectories/astropy__astropy-13579/astropy__astropy-13579.traj.json'
+2026-07-07 17:46:12,715 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-efaee20b -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13977:latest sleep 2h
+2026-07-07 17:46:12,898 - minisweagent.environment - INFO - Started container minisweagent-efaee20b with ID 08355e39353f50ce8fdfc91c585618721f7867cd71e3f7eeab4b7427f3aa77df
+2026-07-07 17:56:21,519 - minisweagent - INFO - Saved trajectory to '/workspace/runs/10/run-agent/trajectories/astropy__astropy-13977/astropy__astropy-13977.traj.json'
+2026-07-07 17:56:21,522 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-780f4df9 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14096:latest sleep 2h
+2026-07-07 17:56:21,720 - minisweagent.environment - INFO - Started container minisweagent-780f4df9 with ID ec6c11bc2de137364bd5c22af0f6ce934e26e7667030f000402d977077aba0de
