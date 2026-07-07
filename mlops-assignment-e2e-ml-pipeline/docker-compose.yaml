@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.airflow
     image: mlops-assignment-airflow:latest
+    user: "0:0"  
     command: standalone
     ports:
       - "8080:8080"
@@ -35,6 +36,8 @@ services:
       --default-artifact-root /mlflow/artifacts
       --host 0.0.0.0
       --port 5000
+      --allowed-hosts '*'
+      --cors-allowed-origins '*'
     ports:
       - "5000:5000"
     volumes:

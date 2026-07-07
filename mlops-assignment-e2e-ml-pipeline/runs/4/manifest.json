@@ -1,0 +1,14 @@
+{
+  "artifact_root": "/workspace/runs/4",
+  "config_path": "/workspace/runs/4/config.json",
+  "created_at": "2026-07-07T17:01:32.453562+00:00",
+  "eval_dir": "/workspace/runs/4/run-eval",
+  "metrics_path": "/workspace/runs/4/metrics.json",
+  "notes": [
+    "Expected preds_path is missing: /workspace/runs/4/run-agent/preds.json",
+    "Expected metrics_path is missing: /workspace/runs/4/metrics.json"
+  ],
+  "preds_path": "/workspace/runs/4/run-agent/preds.json",
+  "run_id": "4",
+  "trajectories_dir": "/workspace/runs/4/run-agent/trajectories"
+}

@@ -1,0 +1,13 @@
+{
+  "artifact_root": "/workspace/runs/10",
+  "config_path": "/workspace/runs/10/config.json",
+  "created_at": "2026-07-07T17:13:38.229549+00:00",
+  "eval_dir": "/workspace/runs/10/run-eval",
+  "metrics_path": "/workspace/runs/10/metrics.json",
+  "notes": [
+    "Inspected files: ['/workspace/runs/10/run-eval/logs/run_evaluation/10/nebius__moonshotai__Kimi-K2.6/astropy__astropy-12907/report.json', '/workspace/runs/10/run-eval/logs/run_evaluation/10/nebius__moonshotai__Kimi-K2.6/astropy__astropy-13033/report.json', '/workspace/runs/10/run-eval/reports/astropy__astropy-12907.report.json', '/workspace/runs/10/run-eval/reports/astropy__astropy-13033.report.json']"
+  ],
+  "preds_path": "/workspace/runs/10/run-agent/preds.json",
+  "run_id": "10",
+  "trajectories_dir": "/workspace/runs/10/run-agent/trajectories"
+}

@@ -1,0 +1,694 @@
+2026-07-07 16:52:49,857 - minisweagent - INFO - Loading dataset princeton-nlp/SWE-Bench_Verified, split test...
+2026-07-07 16:52:54,122 - minisweagent - INFO - Instance slice: 500 -> 30 instances
+2026-07-07 16:52:54,123 - minisweagent - INFO - Running on 30 instances...
+2026-07-07 16:52:54,123 - minisweagent - INFO - Building agent config from specs: ['benchmarks/swebench.yaml']
+2026-07-07 16:52:57,424 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-59693281 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest sleep 2h
+2026-07-07 16:52:57,438 - minisweagent - ERROR - Error processing instance astropy__astropy-12907: Command '['docker', 'run', '-d', '--name', 'minisweagent-59693281', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-59693281', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-12907:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,444 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-2b1b2332 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13033:latest sleep 2h
+2026-07-07 16:52:57,457 - minisweagent - ERROR - Error processing instance astropy__astropy-13033: Command '['docker', 'run', '-d', '--name', 'minisweagent-2b1b2332', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13033:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-2b1b2332', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13033:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,462 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-0bacce5f -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13236:latest sleep 2h
+2026-07-07 16:52:57,476 - minisweagent - ERROR - Error processing instance astropy__astropy-13236: Command '['docker', 'run', '-d', '--name', 'minisweagent-0bacce5f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13236:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-0bacce5f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13236:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,480 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-1557038d -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13398:latest sleep 2h
+2026-07-07 16:52:57,494 - minisweagent - ERROR - Error processing instance astropy__astropy-13398: Command '['docker', 'run', '-d', '--name', 'minisweagent-1557038d', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13398:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-1557038d', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13398:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,498 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-7c2cde51 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13453:latest sleep 2h
+2026-07-07 16:52:57,511 - minisweagent - ERROR - Error processing instance astropy__astropy-13453: Command '['docker', 'run', '-d', '--name', 'minisweagent-7c2cde51', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13453:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-7c2cde51', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13453:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,516 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-e16df10f -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest sleep 2h
+2026-07-07 16:52:57,529 - minisweagent - ERROR - Error processing instance astropy__astropy-13579: Command '['docker', 'run', '-d', '--name', 'minisweagent-e16df10f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-e16df10f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,534 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-639ff84c -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13977:latest sleep 2h
+2026-07-07 16:52:57,548 - minisweagent - ERROR - Error processing instance astropy__astropy-13977: Command '['docker', 'run', '-d', '--name', 'minisweagent-639ff84c', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13977:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-639ff84c', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-13977:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,553 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-52d0cbb9 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14096:latest sleep 2h
+2026-07-07 16:52:57,567 - minisweagent - ERROR - Error processing instance astropy__astropy-14096: Command '['docker', 'run', '-d', '--name', 'minisweagent-52d0cbb9', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14096:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-52d0cbb9', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14096:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,572 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-9b517307 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14182:latest sleep 2h
+2026-07-07 16:52:57,585 - minisweagent - ERROR - Error processing instance astropy__astropy-14182: Command '['docker', 'run', '-d', '--name', 'minisweagent-9b517307', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14182:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-9b517307', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14182:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,589 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-f3e8a58a -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest sleep 2h
+2026-07-07 16:52:57,603 - minisweagent - ERROR - Error processing instance astropy__astropy-14309: Command '['docker', 'run', '-d', '--name', 'minisweagent-f3e8a58a', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-f3e8a58a', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,607 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-21c03492 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest sleep 2h
+2026-07-07 16:52:57,621 - minisweagent - ERROR - Error processing instance astropy__astropy-14365: Command '['docker', 'run', '-d', '--name', 'minisweagent-21c03492', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-21c03492', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,625 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-9ad01519 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14369:latest sleep 2h
+2026-07-07 16:52:57,638 - minisweagent - ERROR - Error processing instance astropy__astropy-14369: Command '['docker', 'run', '-d', '--name', 'minisweagent-9ad01519', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14369:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-9ad01519', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14369:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,643 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-b5dc6e2d -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14508:latest sleep 2h
+2026-07-07 16:52:57,658 - minisweagent - ERROR - Error processing instance astropy__astropy-14508: Command '['docker', 'run', '-d', '--name', 'minisweagent-b5dc6e2d', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14508:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-b5dc6e2d', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14508:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,665 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-4022227f -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14539:latest sleep 2h
+2026-07-07 16:52:57,680 - minisweagent - ERROR - Error processing instance astropy__astropy-14539: Command '['docker', 'run', '-d', '--name', 'minisweagent-4022227f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14539:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-4022227f', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14539:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,685 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-3e78fc39 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14598:latest sleep 2h
+2026-07-07 16:52:57,698 - minisweagent - ERROR - Error processing instance astropy__astropy-14598: Command '['docker', 'run', '-d', '--name', 'minisweagent-3e78fc39', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14598:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-3e78fc39', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14598:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,704 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-85e50601 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14995:latest sleep 2h
+2026-07-07 16:52:57,717 - minisweagent - ERROR - Error processing instance astropy__astropy-14995: Command '['docker', 'run', '-d', '--name', 'minisweagent-85e50601', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14995:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-85e50601', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14995:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,722 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-66207861 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7166:latest sleep 2h
+2026-07-07 16:52:57,736 - minisweagent - ERROR - Error processing instance astropy__astropy-7166: Command '['docker', 'run', '-d', '--name', 'minisweagent-66207861', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7166:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-66207861', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7166:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,742 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-4f107d36 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest sleep 2h
+2026-07-07 16:52:57,755 - minisweagent - ERROR - Error processing instance astropy__astropy-7336: Command '['docker', 'run', '-d', '--name', 'minisweagent-4f107d36', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-4f107d36', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,760 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-b759e128 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7606:latest sleep 2h
+2026-07-07 16:52:57,773 - minisweagent - ERROR - Error processing instance astropy__astropy-7606: Command '['docker', 'run', '-d', '--name', 'minisweagent-b759e128', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7606:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-b759e128', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7606:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,780 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-11b11470 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7671:latest sleep 2h
+2026-07-07 16:52:57,794 - minisweagent - ERROR - Error processing instance astropy__astropy-7671: Command '['docker', 'run', '-d', '--name', 'minisweagent-11b11470', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7671:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-11b11470', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-7671:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,799 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-d755e66a -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8707:latest sleep 2h
+2026-07-07 16:52:57,812 - minisweagent - ERROR - Error processing instance astropy__astropy-8707: Command '['docker', 'run', '-d', '--name', 'minisweagent-d755e66a', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8707:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-d755e66a', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8707:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,817 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-e126161e -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8872:latest sleep 2h
+2026-07-07 16:52:57,830 - minisweagent - ERROR - Error processing instance astropy__astropy-8872: Command '['docker', 'run', '-d', '--name', 'minisweagent-e126161e', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8872:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-e126161e', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-8872:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,836 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-8d9834db -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10097:latest sleep 2h
+2026-07-07 16:52:57,849 - minisweagent - ERROR - Error processing instance django__django-10097: Command '['docker', 'run', '-d', '--name', 'minisweagent-8d9834db', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10097:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-8d9834db', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10097:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,854 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-ec6e4eed -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest sleep 2h
+2026-07-07 16:52:57,868 - minisweagent - ERROR - Error processing instance django__django-10554: Command '['docker', 'run', '-d', '--name', 'minisweagent-ec6e4eed', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-ec6e4eed', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10554:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,873 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-42b7311c -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10880:latest sleep 2h
+2026-07-07 16:52:57,887 - minisweagent - ERROR - Error processing instance django__django-10880: Command '['docker', 'run', '-d', '--name', 'minisweagent-42b7311c', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10880:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-42b7311c', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10880:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,893 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-7553eb04 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10914:latest sleep 2h
+2026-07-07 16:52:57,907 - minisweagent - ERROR - Error processing instance django__django-10914: Command '['docker', 'run', '-d', '--name', 'minisweagent-7553eb04', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10914:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-7553eb04', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10914:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,912 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-8aae0663 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10973:latest sleep 2h
+2026-07-07 16:52:57,926 - minisweagent - ERROR - Error processing instance django__django-10973: Command '['docker', 'run', '-d', '--name', 'minisweagent-8aae0663', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10973:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-8aae0663', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10973:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,931 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-585bc5e2 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-10999:latest sleep 2h
+2026-07-07 16:52:57,944 - minisweagent - ERROR - Error processing instance django__django-10999: Command '['docker', 'run', '-d', '--name', 'minisweagent-585bc5e2', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10999:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-585bc5e2', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-10999:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,949 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-20c9ed03 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-11066:latest sleep 2h
+2026-07-07 16:52:57,963 - minisweagent - ERROR - Error processing instance django__django-11066: Command '['docker', 'run', '-d', '--name', 'minisweagent-20c9ed03', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11066:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-20c9ed03', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11066:latest', 'sleep', '2h']' returned non-zero exit status 1.
+2026-07-07 16:52:57,968 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-558342f1 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.django_1776_django-11087:latest sleep 2h
+2026-07-07 16:52:57,983 - minisweagent - ERROR - Error processing instance django__django-11087: Command '['docker', 'run', '-d', '--name', 'minisweagent-558342f1', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11087:latest', 'sleep', '2h']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 146, in process_instance
+    env = get_sb_environment(config, instance)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 88, in get_sb_environment
+    env = get_environment(env_config)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/__init__.py", line 33, in get_environment
+    return get_environment_class(environment_class)(**config)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 59, in __init__
+    self._start_container()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/environments/docker.py", line 91, in _start_container
+    result = subprocess.run(
+        cmd,
+    ...<3 lines>...
+        check=True,
+    )
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'run', '-d', '--name', 'minisweagent-558342f1', '-w', '/testbed', '--rm', 'docker.io/swebench/sweb.eval.x86_64.django_1776_django-11087:latest', 'sleep', '2h']' returned non-zero exit status 1.

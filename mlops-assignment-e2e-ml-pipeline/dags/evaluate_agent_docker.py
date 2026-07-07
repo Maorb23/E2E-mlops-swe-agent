@@ -27,9 +27,13 @@ COMMON_ENV = {
     "MSWEA_COST_TRACKING": "ignore_errors",
     "MLFLOW_TRACKING_URI": os.environ.get("MLFLOW_TRACKING_URI", "http://mlflow:5000"),
     "MLFLOW_ALLOW_FILE_STORE": "true",
+    "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
+    "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
+    "NEBIUS_API_KEY": os.environ.get("NEBIUS_API_KEY", ""),
 }
 
 PROJECT_MOUNT = Mount(source=HOST_PROJECT_ROOT, target="/workspace", type="bind")
+DOCKER_SOCKET_MOUNT = Mount(source="/var/run/docker.sock", target="/var/run/docker.sock", type="bind")
 
 DEFAULT_ARGS = {
     "owner": "mlops",
@@ -45,7 +49,7 @@ def docker_task(task_id: str, command: str, timeout_hours: int) -> DockerOperato
         command=command,
         working_dir="/workspace",
         environment=COMMON_ENV,
-        mounts=[PROJECT_MOUNT],
+        mounts=[PROJECT_MOUNT, DOCKER_SOCKET_MOUNT],
         mount_tmp_dir=False,
         network_mode=DOCKER_NETWORK,
         auto_remove="success",

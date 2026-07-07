@@ -1,0 +1,13 @@
+{
+  "cost_limit": 0.0,
+  "created_at": "2026-07-07T16:52:44.135798+00:00",
+  "dataset_name": "princeton-nlp/SWE-bench_Verified",
+  "model": "nebius/moonshotai/Kimi-K2.6",
+  "run_dir": "/workspace/runs/3",
+  "run_id": "3",
+  "split": "test",
+  "subset": "verified",
+  "swebench_config": "benchmarks/swebench.yaml",
+  "task_slice": "0:30",
+  "workers": 1
+}
