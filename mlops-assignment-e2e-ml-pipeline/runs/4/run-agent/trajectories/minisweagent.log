@@ -1706,3 +1706,455 @@ litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalSer
 2026-07-07 17:35:58,398 - minisweagent - INFO - Saved trajectory to '/workspace/runs/4/run-agent/trajectories/astropy__astropy-14096/astropy__astropy-14096.traj.json'
 2026-07-07 17:35:58,400 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-5b15b44a -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14182:latest sleep 2h
 2026-07-07 17:35:58,590 - minisweagent.environment - INFO - Started container minisweagent-5b15b44a with ID 401a84d0d2441b6e64e8864b3ab31a2e5e446322b3cfeab4ca5b90e55d53b748
+2026-07-07 17:39:43,043 - minisweagent - ERROR - Error processing instance astropy__astropy-14182: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 852, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 754, in completion
+    openai_client: OpenAI = self._get_openai_client(  # type: ignore
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        is_async=False,
+        ^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        client=client,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 397, in _get_openai_client
+    _new_client = OpenAI(
+        api_key=api_key,
+    ...<4 lines>...
+        organization=organization,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/openai/_client.py", line 194, in __init__
+    raise OpenAIError(
+        "Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable."
+    )
+openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2781, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2753, in completion
+    response = openai_chat_completions.completion(
+        model=model,
+    ...<16 lines>...
+        shared_session=shared_session,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 863, in completion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 154, in process_instance
+    info = agent.run(task)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/utils/common.py", line 17, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 438, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ~~~~~~~~~~~~~~~~~~^
+        model=self.config.model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **(self.config.model_kwargs | kwargs),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1775, in wrapper
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1596, in wrapper
+    result = original_function(*args, **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 4614, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2473, in exception_type
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 598, in exception_type
+    raise InternalServerError(
+    ...<5 lines>...
+    )
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+2026-07-07 17:39:43,064 - minisweagent - INFO - Saved trajectory to '/workspace/runs/4/run-agent/trajectories/astropy__astropy-14182/astropy__astropy-14182.traj.json'
+2026-07-07 17:39:43,066 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-caad1d0b -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest sleep 2h
+2026-07-07 17:39:43,254 - minisweagent.environment - INFO - Started container minisweagent-caad1d0b with ID 341c34e198650aec16a4b1a6df52d3f13c0e072f353744e97bc84ef0c1d3fd76
+2026-07-07 17:40:06,718 - minisweagent - ERROR - Error processing instance astropy__astropy-14182: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 852, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 754, in completion
+    openai_client: OpenAI = self._get_openai_client(  # type: ignore
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        is_async=False,
+        ^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        client=client,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 397, in _get_openai_client
+    _new_client = OpenAI(
+        api_key=api_key,
+    ...<4 lines>...
+        organization=organization,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/openai/_client.py", line 194, in __init__
+    raise OpenAIError(
+        "Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable."
+    )
+openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2781, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2753, in completion
+    response = openai_chat_completions.completion(
+        model=model,
+    ...<16 lines>...
+        shared_session=shared_session,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 863, in completion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 154, in process_instance
+    info = agent.run(task)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/utils/common.py", line 17, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 438, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ~~~~~~~~~~~~~~~~~~^
+        model=self.config.model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **(self.config.model_kwargs | kwargs),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1775, in wrapper
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1596, in wrapper
+    result = original_function(*args, **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 4614, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2473, in exception_type
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 598, in exception_type
+    raise InternalServerError(
+    ...<5 lines>...
+    )
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+2026-07-07 17:40:06,739 - minisweagent - INFO - Saved trajectory to '/workspace/runs/4/run-agent/trajectories/astropy__astropy-14182/astropy__astropy-14182.traj.json'
+2026-07-07 17:40:06,740 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-c9478822 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14309:latest sleep 2h
+2026-07-07 17:40:06,919 - minisweagent.environment - INFO - Started container minisweagent-c9478822 with ID 313c2fd0984d9178b9ad2ffbf1e6c460e24dadff734e41ce44c068ff68ae8d3a
+2026-07-07 17:43:51,376 - minisweagent - ERROR - Error processing instance astropy__astropy-14309: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 852, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 754, in completion
+    openai_client: OpenAI = self._get_openai_client(  # type: ignore
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        is_async=False,
+        ^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        client=client,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 397, in _get_openai_client
+    _new_client = OpenAI(
+        api_key=api_key,
+    ...<4 lines>...
+        organization=organization,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/openai/_client.py", line 194, in __init__
+    raise OpenAIError(
+        "Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable."
+    )
+openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2781, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2753, in completion
+    response = openai_chat_completions.completion(
+        model=model,
+    ...<16 lines>...
+        shared_session=shared_session,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 863, in completion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 154, in process_instance
+    info = agent.run(task)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/utils/common.py", line 17, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 438, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ~~~~~~~~~~~~~~~~~~^
+        model=self.config.model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **(self.config.model_kwargs | kwargs),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1775, in wrapper
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1596, in wrapper
+    result = original_function(*args, **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 4614, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2473, in exception_type
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 598, in exception_type
+    raise InternalServerError(
+    ...<5 lines>...
+    )
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+2026-07-07 17:43:51,397 - minisweagent - INFO - Saved trajectory to '/workspace/runs/4/run-agent/trajectories/astropy__astropy-14309/astropy__astropy-14309.traj.json'
+2026-07-07 17:43:51,399 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-bc28ddd2 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest sleep 2h
+2026-07-07 17:43:51,574 - minisweagent.environment - INFO - Started container minisweagent-bc28ddd2 with ID 556a5cadc6fa612e15f9b33b4771ad1131ddf6140a546a6b852c9644fc7f122d
+2026-07-07 17:44:15,044 - minisweagent - ERROR - Error processing instance astropy__astropy-14309: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 852, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 754, in completion
+    openai_client: OpenAI = self._get_openai_client(  # type: ignore
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        is_async=False,
+        ^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        client=client,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 397, in _get_openai_client
+    _new_client = OpenAI(
+        api_key=api_key,
+    ...<4 lines>...
+        organization=organization,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/openai/_client.py", line 194, in __init__
+    raise OpenAIError(
+        "Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable."
+    )
+openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2781, in completion
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 2753, in completion
+    response = openai_chat_completions.completion(
+        model=model,
+    ...<16 lines>...
+        shared_session=shared_session,
+    )
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/llms/openai/openai.py", line 863, in completion
+    raise OpenAIError(
+    ...<4 lines>...
+    )
+litellm.llms.openai.common_utils.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/swebench.py", line 154, in process_instance
+    info = agent.run(task)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/run/benchmarks/utils/common.py", line 17, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 438, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/tenacity/__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/root/.local/share/uv/python/cpython-3.14.6-linux-x86_64-gnu/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ~~~~~~~~~~~~~~~~~~^
+        model=self.config.model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **(self.config.model_kwargs | kwargs),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1775, in wrapper
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/utils.py", line 1596, in wrapper
+    result = original_function(*args, **kwargs)
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/main.py", line 4614, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2473, in exception_type
+    raise e
+  File "/mlops-assignment/.venv/lib/python3.14/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 598, in exception_type
+    raise InternalServerError(
+    ...<5 lines>...
+    )
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: NebiusException - Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `NEBIUS_API_KEY` or `NEBIUS_ADMIN_KEY` environment variable.
+2026-07-07 17:44:15,065 - minisweagent - INFO - Saved trajectory to '/workspace/runs/4/run-agent/trajectories/astropy__astropy-14309/astropy__astropy-14309.traj.json'
+2026-07-07 17:44:15,066 - minisweagent.environment - DEBUG - Starting container with command: docker run -d --name minisweagent-ee92c616 -w /testbed --rm docker.io/swebench/sweb.eval.x86_64.astropy_1776_astropy-14365:latest sleep 2h
+2026-07-07 17:44:15,250 - minisweagent.environment - INFO - Started container minisweagent-ee92c616 with ID cb21360c01e0e8d8168badce5e1839b14f5784ada188a86010f9dd95c66e70fb

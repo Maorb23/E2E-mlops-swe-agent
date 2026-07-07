@@ -28,5 +28,15 @@
     "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
     "instance_id": "astropy__astropy-13579",
     "model_patch": ""
+  },
+  "astropy__astropy-13977": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-13977",
+    "model_patch": ""
+  },
+  "astropy__astropy-14096": {
+    "model_name_or_path": "nebius/moonshotai/Kimi-K2.6",
+    "instance_id": "astropy__astropy-14096",
+    "model_patch": ""
   }
 }

@@ -7,3 +7,5 @@ instances_by_exit_status:
     - astropy__astropy-13579
     - astropy__astropy-13977
     - astropy__astropy-14096
+    - astropy__astropy-14182
+    - astropy__astropy-14309
